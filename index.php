@@ -26,7 +26,6 @@ use LDAP\Result;
     }
     */
 
-    echo "Connected Successfully";
     CloseCon($conn);
 ?>
 
@@ -37,9 +36,18 @@ use LDAP\Result;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polymer Selector</title>
-    <link rel="stylesheet/css" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>This is the headidng to the page or something</h1>
+    <div id="header">
+        <h1>Polymer Selector</h1>
+        <ul></ul> <!-- menu bar or something might go here -->
+    </div>
+    <div id="config"> <!-- this is where we set up the view by filtering etc -->
+
+    </div>
+    <div id="view"> <!-- this is where the results of the queries are formatted into a display -->
+
+    </div>
 </body>
 </html>
