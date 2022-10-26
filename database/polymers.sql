@@ -30,7 +30,7 @@ USE `polymer_selectordb`;
 --
 
 CREATE TABLE `cas numbers` (
-  `ï»¿common name` text DEFAULT NULL,
+  `common name` text DEFAULT NULL,
   `synonyms` text DEFAULT NULL,
   `CAS registry no.` text DEFAULT NULL,
   `CA name` text DEFAULT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `cas numbers` (
 -- Dumping data for table `cas numbers`
 --
 
-INSERT INTO `cas numbers` (`ï»¿common name`, `synonyms`, `CAS registry no.`, `CA name`, `mol. formula`) VALUES
+INSERT INTO `cas numbers` (`common name`, `synonyms`, `CAS registry no.`, `CA name`, `mol. formula`) VALUES
 ('Alginic acid', '', '9005-32-7', 'Alginic acid', 'Unk*'),
 ('Alginic acid, sodium salt', '', '9005-38-3', 'Alginic acid, sodium salt', 'Unk'),
 ('Bayberry wax', 'Myrtle wax', '8038-77-5', 'Fats and Glyceridic oils, bayberry', 'Unk'),
@@ -100,7 +100,7 @@ INSERT INTO `cas numbers` (`ï»¿common name`, `synonyms`, `CAS registry no.`, 
 --
 
 CREATE TABLE `chemical resistance` (
-  `ï»¿Polymers` text DEFAULT NULL,
+  `Polymers` text DEFAULT NULL,
   `Acetic acid (10%)` bigint(20) DEFAULT NULL,
   `Acetaldehyde (40%)` bigint(20) DEFAULT NULL,
   `Acetone (100%)` bigint(20) DEFAULT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE `chemical resistance` (
 -- Dumping data for table `chemical resistance`
 --
 
-INSERT INTO `chemical resistance` (`ï»¿Polymers`, `Acetic acid (10%)`, `Acetaldehyde (40%)`, `Acetone (100%)`, `Butanol (100%)`, `Carbon tetrachloride (100%)`, `Diesel oil (100%)`, `Ethanol (96%)`, `Formic acid (3%)`, `Formic acid(-10%)`, `Gasoline unleaded (100%)`, `Heptane (100%)`, `Hydrogen peroxide (2%)`, `Dichloromethane (100%)`, `Perchloroethylene (100%)`, `Phenol (75%)`, `Potassium hydroxide (10%)`, `Sulfuric acid (10%)`, `Toluene (100%)`, `Transformer oil (100%)`) VALUES
+INSERT INTO `chemical resistance` (`Polymers`, `Acetic acid (10%)`, `Acetaldehyde (40%)`, `Acetone (100%)`, `Butanol (100%)`, `Carbon tetrachloride (100%)`, `Diesel oil (100%)`, `Ethanol (96%)`, `Formic acid (3%)`, `Formic acid(-10%)`, `Gasoline unleaded (100%)`, `Heptane (100%)`, `Hydrogen peroxide (2%)`, `Dichloromethane (100%)`, `Perchloroethylene (100%)`, `Phenol (75%)`, `Potassium hydroxide (10%)`, `Sulfuric acid (10%)`, `Toluene (100%)`, `Transformer oil (100%)`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -161,7 +161,7 @@ INSERT INTO `chemical resistance` (`ï»¿Polymers`, `Acetic acid (10%)`, `Aceta
 --
 
 CREATE TABLE `co-crystalize` (
-  `ï»¿polymer I of` text DEFAULT NULL,
+  `polymer I of` text DEFAULT NULL,
   `polymer II of` text DEFAULT NULL,
   `method` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -170,7 +170,7 @@ CREATE TABLE `co-crystalize` (
 -- Dumping data for table `co-crystalize`
 --
 
-INSERT INTO `co-crystalize` (`ï»¿polymer I of`, `polymer II of`, `method`) VALUES
+INSERT INTO `co-crystalize` (`polymer I of`, `polymer II of`, `method`) VALUES
 ('Butylene terephthalate', 'Butylene glycol-b-butylene terephthalate', 'Tg and Tm by DSC, dielectric loss measurements'),
 ('Butylene terephthalate', 'Butylene glycol-b-butylene terephthalate', 'Tg and Tm by DSC, dielectric loss measurements, microscopy'),
 ('Butylene terephthalate', 'Ester-ether segmented polymer', 'Dielectric loss peak and Tm by DSC'),
@@ -203,7 +203,7 @@ INSERT INTO `co-crystalize` (`ï»¿polymer I of`, `polymer II of`, `method`) VA
 --
 
 CREATE TABLE `compression` (
-  `ï»¿Polymer` text DEFAULT NULL,
+  `Polymer` text DEFAULT NULL,
   `compressive modulus lower` bigint(20) DEFAULT NULL,
   `compressive modulus upper` bigint(20) DEFAULT NULL,
   `compressive strength at break lower` bigint(20) DEFAULT NULL,
@@ -217,7 +217,7 @@ CREATE TABLE `compression` (
 -- Dumping data for table `compression`
 --
 
-INSERT INTO `compression` (`ï»¿Polymer`, `compressive modulus lower`, `compressive modulus upper`, `compressive strength at break lower`, `compressive strength at break upper`, `compressive strength at yield`, `storage modulus`, `loss modulus`) VALUES
+INSERT INTO `compression` (`Polymer`, `compressive modulus lower`, `compressive modulus upper`, `compressive strength at break lower`, `compressive strength at break upper`, `compressive strength at yield`, `storage modulus`, `loss modulus`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0, 0),
@@ -252,7 +252,7 @@ INSERT INTO `compression` (`ï»¿Polymer`, `compressive modulus lower`, `compre
 --
 
 CREATE TABLE `creep` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `tensile creep modulus` bigint(20) DEFAULT NULL,
   `flexural creep modulus Gpa` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -261,7 +261,7 @@ CREATE TABLE `creep` (
 -- Dumping data for table `creep`
 --
 
-INSERT INTO `creep` (`ï»¿polymer`, `tensile creep modulus`, `flexural creep modulus Gpa`) VALUES
+INSERT INTO `creep` (`polymer`, `tensile creep modulus`, `flexural creep modulus Gpa`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0),
 ('poly(acrylonitrile)', 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0),
@@ -296,7 +296,7 @@ INSERT INTO `creep` (`ï»¿polymer`, `tensile creep modulus`, `flexural creep m
 --
 
 CREATE TABLE `electrical` (
-  `ï»¿Polymer` text DEFAULT NULL,
+  `Polymer` text DEFAULT NULL,
   `Constant frequency Hz` bigint(20) DEFAULT NULL,
   `Dielectric const DC lower` bigint(20) DEFAULT NULL,
   `Dielectric const DC upper` bigint(20) DEFAULT NULL,
@@ -309,7 +309,7 @@ CREATE TABLE `electrical` (
 -- Dumping data for table `electrical`
 --
 
-INSERT INTO `electrical` (`ï»¿Polymer`, `Constant frequency Hz`, `Dielectric const DC lower`, `Dielectric const DC upper`, `dielectric constant AC , e lower`, `dielectric constant AC , e upper`, `electric conductivity (S/cm)`) VALUES
+INSERT INTO `electrical` (`Polymer`, `Constant frequency Hz`, `Dielectric const DC lower`, `Dielectric const DC upper`, `dielectric constant AC , e lower`, `dielectric constant AC , e upper`, `electric conductivity (S/cm)`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 4, 7, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0),
@@ -344,7 +344,7 @@ INSERT INTO `electrical` (`ï»¿Polymer`, `Constant frequency Hz`, `Dielectric 
 --
 
 CREATE TABLE `flexural` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `Flexural modulus Mpa lower` bigint(20) DEFAULT NULL,
   `Flexural modulus Mpa upper` bigint(20) DEFAULT NULL,
   `flex stress at break lower` bigint(20) DEFAULT NULL,
@@ -358,7 +358,7 @@ CREATE TABLE `flexural` (
 -- Dumping data for table `flexural`
 --
 
-INSERT INTO `flexural` (`ï»¿polymer`, `Flexural modulus Mpa lower`, `Flexural modulus Mpa upper`, `flex stress at break lower`, `flex stress at break upper`, `flex stress at yield`, `storage modulus`, `loss modulus`) VALUES
+INSERT INTO `flexural` (`polymer`, `Flexural modulus Mpa lower`, `Flexural modulus Mpa upper`, `flex stress at break lower`, `flex stress at break upper`, `flex stress at yield`, `storage modulus`, `loss modulus`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0, 0),
@@ -393,7 +393,7 @@ INSERT INTO `flexural` (`ï»¿polymer`, `Flexural modulus Mpa lower`, `Flexural
 --
 
 CREATE TABLE `glass transition` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `form` text DEFAULT NULL,
   `CAS registry no.` text DEFAULT NULL,
   `Tg (Ã‚Â°C)` int(11) DEFAULT NULL,
@@ -404,7 +404,7 @@ CREATE TABLE `glass transition` (
 -- Dumping data for table `glass transition`
 --
 
-INSERT INTO `glass transition` (`ï»¿polymer`, `form`, `CAS registry no.`, `Tg (Ã‚Â°C)`, `remarks`) VALUES
+INSERT INTO `glass transition` (`polymer`, `form`, `CAS registry no.`, `Tg (Ã‚Â°C)`, `remarks`) VALUES
 ('Poly(acrylic acid)', '', '1/4/9003', 106, ''),
 ('Poly(acrylic acid)', '', '1/4/9003', 75, ''),
 ('Poly(1-adamantyl acrylate)', '', '', 153, ''),
@@ -459,7 +459,7 @@ INSERT INTO `glass transition` (`ï»¿polymer`, `form`, `CAS registry no.`, `Tg
 --
 
 CREATE TABLE `heat` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `softening temp` bigint(20) DEFAULT NULL,
   `vicat sofening temp lower` bigint(20) DEFAULT NULL,
   `vicat sofening temp upper` bigint(20) DEFAULT NULL
@@ -469,7 +469,7 @@ CREATE TABLE `heat` (
 -- Dumping data for table `heat`
 --
 
-INSERT INTO `heat` (`ï»¿polymer`, `softening temp`, `vicat sofening temp lower`, `vicat sofening temp upper`) VALUES
+INSERT INTO `heat` (`polymer`, `softening temp`, `vicat sofening temp lower`, `vicat sofening temp upper`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0),
@@ -504,7 +504,7 @@ INSERT INTO `heat` (`ï»¿polymer`, `softening temp`, `vicat sofening temp lowe
 --
 
 CREATE TABLE `heats of solution` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `solvent` text DEFAULT NULL,
   `IH (J/g)` double DEFAULT NULL,
   `temp. (AÂ°C)` int(11) DEFAULT NULL,
@@ -516,7 +516,7 @@ CREATE TABLE `heats of solution` (
 -- Dumping data for table `heats of solution`
 --
 
-INSERT INTO `heats of solution` (`ï»¿polymer`, `solvent`, `IH (J/g)`, `temp. (AÂ°C)`, `state`, `mol. weight (x 10-4)`) VALUES
+INSERT INTO `heats of solution` (`polymer`, `solvent`, `IH (J/g)`, `temp. (AÂ°C)`, `state`, `mol. weight (x 10-4)`) VALUES
 ('Poly(butadiene)', 'Benzene', 13, 27, 'L', '8'),
 ('Poly(butadiene)', 'Cyclohexane', 5.4, 25, 'L', ''),
 ('Poly(butadiene)', 'n-Hexadecane', 4.9, 25, 'L', ''),
@@ -574,7 +574,7 @@ INSERT INTO `heats of solution` (`ï»¿polymer`, `solvent`, `IH (J/g)`, `temp. 
 --
 
 CREATE TABLE `impact` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `izod notched lower` bigint(20) DEFAULT NULL,
   `izod notched upper` bigint(20) DEFAULT NULL,
   `charpy` bigint(20) DEFAULT NULL,
@@ -589,7 +589,7 @@ CREATE TABLE `impact` (
 -- Dumping data for table `impact`
 --
 
-INSERT INTO `impact` (`ï»¿polymer`, `izod notched lower`, `izod notched upper`, `charpy`, `rockwell R scale lower`, `rockwell R scale upper`, `shore durometer lower`, `shore durometer upper`, `oxygen index`) VALUES
+INSERT INTO `impact` (`polymer`, `izod notched lower`, `izod notched upper`, `charpy`, `rockwell R scale lower`, `rockwell R scale upper`, `shore durometer lower`, `shore durometer upper`, `oxygen index`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0, 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0, 0, 0),
@@ -624,7 +624,7 @@ INSERT INTO `impact` (`ï»¿polymer`, `izod notched lower`, `izod notched upper
 --
 
 CREATE TABLE `master data table` (
-  `ï»¿Polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `Density (lower)g/cm3` bigint(20) DEFAULT NULL,
   `Density (upper)g/cm3` bigint(20) DEFAULT NULL,
   `Specific Volume` bigint(20) DEFAULT NULL,
@@ -637,7 +637,7 @@ CREATE TABLE `master data table` (
 -- Dumping data for table `master data table`
 --
 
-INSERT INTO `master data table` (`ï»¿Polymer`, `Density (lower)g/cm3`, `Density (upper)g/cm3`, `Specific Volume`, `MW Lower`, `MW Upper`, `Crystal structures`) VALUES
+INSERT INTO `master data table` (`polymer`, `Density (lower)g/cm3`, `Density (upper)g/cm3`, `Specific Volume`, `MW Lower`, `MW Upper`, `Crystal structures`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, ''),
 ('poly(acrylonitrile)', 1, 1, 0, 0, 0, ''),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, ''),
@@ -672,7 +672,7 @@ INSERT INTO `master data table` (`ï»¿Polymer`, `Density (lower)g/cm3`, `Densi
 --
 
 CREATE TABLE `melting points` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `synonyms/comments` text DEFAULT NULL,
   `mol. weight` text DEFAULT NULL,
   `melting pt. (Ã‚Â°C)` text DEFAULT NULL
@@ -682,7 +682,7 @@ CREATE TABLE `melting points` (
 -- Dumping data for table `melting points`
 --
 
-INSERT INTO `melting points` (`ï»¿polymer`, `synonyms/comments`, `mol. weight`, `melting pt. (Ã‚Â°C)`) VALUES
+INSERT INTO `melting points` (`polymer`, `synonyms/comments`, `mol. weight`, `melting pt. (Ã‚Â°C)`) VALUES
 ('Poly(acetaldehyde)', '', '', ''),
 ('Poly(2,2,2-trichloroacetaldehyde)', '', '', ''),
 ('Poly(acrylamide)', '', '71.08', ''),
@@ -741,7 +741,7 @@ INSERT INTO `melting points` (`ï»¿polymer`, `synonyms/comments`, `mol. weight
 --
 
 CREATE TABLE `miscibility dissimilar triads` (
-  `ï»¿polymer I of` text DEFAULT NULL,
+  `polymer I of` text DEFAULT NULL,
   `polymer II of` text DEFAULT NULL,
   `polymer III of (and polymer IV of)` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -750,7 +750,7 @@ CREATE TABLE `miscibility dissimilar triads` (
 -- Dumping data for table `miscibility dissimilar triads`
 --
 
-INSERT INTO `miscibility dissimilar triads` (`ï»¿polymer I of`, `polymer II of`, `polymer III of (and polymer IV of)`) VALUES
+INSERT INTO `miscibility dissimilar triads` (`polymer I of`, `polymer II of`, `polymer III of (and polymer IV of)`) VALUES
 ('Acrylic acid-co-styrene', 'Ethylene glycol', 'Methyl methacrylate'),
 ('Acrylonitrile-co-butadiene', 'Vinyl chloride', 'Vinyl chloride-co-vinylidene chloride'),
 ('Acrylonitrile-co-butadiene- co-styrene', 'Carbonate of bisphenol-A', 'Propylene-co-vinyl chloride'),
@@ -809,7 +809,7 @@ INSERT INTO `miscibility dissimilar triads` (`ï»¿polymer I of`, `polymer II o
 --
 
 CREATE TABLE `more polymer miscibility` (
-  `ï»¿polymer I of` text DEFAULT NULL,
+  `polymer I of` text DEFAULT NULL,
   `polymer II of` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -817,7 +817,7 @@ CREATE TABLE `more polymer miscibility` (
 -- Dumping data for table `more polymer miscibility`
 --
 
-INSERT INTO `more polymer miscibility` (`ï»¿polymer I of`, `polymer II of`) VALUES
+INSERT INTO `more polymer miscibility` (`polymer I of`, `polymer II of`) VALUES
 ('Acrylonitrile-co-ÃŽÂ±-methylstyrene', 'Carbonate of bisphenol-A'),
 ('Acrylonitrile-co-styrene', 'Carbonate of bisphenol-A'),
 ('3-Bromo-2,6-dimethyl- 1,4-phenylene ether', 'Styrene'),
@@ -866,7 +866,7 @@ INSERT INTO `more polymer miscibility` (`ï»¿polymer I of`, `polymer II of`) V
 --
 
 CREATE TABLE `permeability coefficients` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `comments` text DEFAULT NULL,
   `permeant` text DEFAULT NULL,
   `T (Ã‚Â°C)` int(11) DEFAULT NULL,
@@ -884,7 +884,7 @@ CREATE TABLE `permeability coefficients` (
 -- Dumping data for table `permeability coefficients`
 --
 
-INSERT INTO `permeability coefficients` (`ï»¿polymer`, `comments`, `permeant`, `T (Ã‚Â°C)`, `P (x 1013) ((cm3 cm)/(cm2 s Pa))`, `D (x 106) (cm2/s)`, `S (x 106)`, `temp. range (Ã‚Â°C)`, `P0 (x 107) (10-5 m2/s)`, `EP (kJ/mol)`, `ED (kJ/mol)`, `ES (kJ/mol)`) VALUES
+INSERT INTO `permeability coefficients` (`polymer`, `comments`, `permeant`, `T (Ã‚Â°C)`, `P (x 1013) ((cm3 cm)/(cm2 s Pa))`, `D (x 106) (cm2/s)`, `S (x 106)`, `temp. range (Ã‚Â°C)`, `P0 (x 107) (10-5 m2/s)`, `EP (kJ/mol)`, `ED (kJ/mol)`, `ES (kJ/mol)`) VALUES
 ('Poly(ethylene)', 'LLDPE', 'C2H4O', 30, 68.9, 0.031, 225, '', '', '', '', ''),
 ('Poly(ethylene)', '', 'H2', 25, 7.4, 0.474, 1.58, '', '', '', '', ''),
 ('Poly(ethylene)', 'Density=0.914g/cm3, LDPE', 'D2', 25, 6.6, 0.476, 1.38, '', '', '', '', ''),
@@ -932,7 +932,7 @@ INSERT INTO `permeability coefficients` (`ï»¿polymer`, `comments`, `permeant`
 --
 
 CREATE TABLE `physical constants of solvents` (
-  `ï»¿compound` text DEFAULT NULL,
+  `compound` text DEFAULT NULL,
   `CAS registry no.` text DEFAULT NULL,
   `mol. weight` double DEFAULT NULL,
   `melting pt. (Ã‚Â°C)` int(11) DEFAULT NULL,
@@ -946,7 +946,7 @@ CREATE TABLE `physical constants of solvents` (
 -- Dumping data for table `physical constants of solvents`
 --
 
-INSERT INTO `physical constants of solvents` (`ï»¿compound`, `CAS registry no.`, `mol. weight`, `melting pt. (Ã‚Â°C)`, `boiling pt. (Ã‚Â°C)`, `density (g/cm3)`, `viscosity (cP)`, `flash pt. (Ã‚Â°C)`) VALUES
+INSERT INTO `physical constants of solvents` (`compound`, `CAS registry no.`, `mol. weight`, `melting pt. (Ã‚Â°C)`, `boiling pt. (Ã‚Â°C)`, `density (g/cm3)`, `viscosity (cP)`, `flash pt. (Ã‚Â°C)`) VALUES
 ('Acetic acid', '64-19-7', 60.05, 17, 118, 1.049, '1.21', 40),
 ('Acetic anhydride', '108-24-7', 102.09, -73, 140, 1.082, '', 54),
 ('Acetone', '67-64-1', 58.08, -94, 56, 0.79, '0.324', -17),
@@ -990,7 +990,7 @@ INSERT INTO `physical constants of solvents` (`ï»¿compound`, `CAS registry no
 --
 
 CREATE TABLE `physical properties monomers` (
-  `ï»¿material category` text DEFAULT NULL,
+  `material category` text DEFAULT NULL,
   `name` text DEFAULT NULL,
   `structural or line formula` text DEFAULT NULL,
   `CAS registry no.` text DEFAULT NULL,
@@ -1005,7 +1005,7 @@ CREATE TABLE `physical properties monomers` (
 -- Dumping data for table `physical properties monomers`
 --
 
-INSERT INTO `physical properties monomers` (`ï»¿material category`, `name`, `structural or line formula`, `CAS registry no.`, `mol. weight`, `boiling pt. (Ã‚Â°C)`, `melting pt. (Ã‚Â°C)`, `density (g/cm3)`, `flash pt. (Ã‚Â°C)`) VALUES
+INSERT INTO `physical properties monomers` (`material category`, `name`, `structural or line formula`, `CAS registry no.`, `mol. weight`, `boiling pt. (Ã‚Â°C)`, `melting pt. (Ã‚Â°C)`, `density (g/cm3)`, `flash pt. (Ã‚Â°C)`) VALUES
 ('acetylene', 'acetylene', 'H2CÃ¢â€°Â¡CH2', '74-86-2', 26.04, '-82', '-84(s)', '1', ''),
 ('acetylene', 'chloroacetylene', 'ClCÃ¢â€°Â¡CH', '', 60.48, '-32', '-126', '', ''),
 ('acetylene', 'dichloroacetylene', 'ClCÃ¢â€°Â¡CCl', '', 94.93, '', '-66', '', ''),
@@ -1064,7 +1064,7 @@ INSERT INTO `physical properties monomers` (`ï»¿material category`, `name`, `
 --
 
 CREATE TABLE `physicochemical property` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `solubility parameter J/cm3,1/2` bigint(20) DEFAULT NULL,
   `hansen parameter (polar)` bigint(20) DEFAULT NULL,
   `hansen parameter (dispersive)` bigint(20) DEFAULT NULL,
@@ -1085,7 +1085,7 @@ CREATE TABLE `physicochemical property` (
 -- Dumping data for table `physicochemical property`
 --
 
-INSERT INTO `physicochemical property` (`ï»¿polymer`, `solubility parameter J/cm3,1/2`, `hansen parameter (polar)`, `hansen parameter (dispersive)`, `hansen parameter (hydrogen bonding)`, `water absorption`, `Gas permeability coefficient`, `CO2 Permeability ngcm/m2-s`, `O2 Permeability`, `N2 Permeability`, `Gas diffusion coefficient (cm2/s)x10^8`, `critical surface tension`, `interfacial tension`, `contact angle`, `friction coefficient`) VALUES
+INSERT INTO `physicochemical property` (`polymer`, `solubility parameter J/cm3,1/2`, `hansen parameter (polar)`, `hansen parameter (dispersive)`, `hansen parameter (hydrogen bonding)`, `water absorption`, `Gas permeability coefficient`, `CO2 Permeability ngcm/m2-s`, `O2 Permeability`, `N2 Permeability`, `Gas diffusion coefficient (cm2/s)x10^8`, `critical surface tension`, `interfacial tension`, `contact angle`, `friction coefficient`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', ''),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0, 0, '1.18E-14', '2.50E-15', '', '', '', '', '', ''),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0, '', '', '', '', '', '', '', ''),
@@ -1120,7 +1120,7 @@ INSERT INTO `physicochemical property` (`ï»¿polymer`, `solubility parameter J
 --
 
 CREATE TABLE `polymer miscibility dissimilar` (
-  `ï»¿polymer I of` text DEFAULT NULL,
+  `polymer I of` text DEFAULT NULL,
   `polymer II of` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1128,7 +1128,7 @@ CREATE TABLE `polymer miscibility dissimilar` (
 -- Dumping data for table `polymer miscibility dissimilar`
 --
 
-INSERT INTO `polymer miscibility dissimilar` (`ï»¿polymer I of`, `polymer II of`) VALUES
+INSERT INTO `polymer miscibility dissimilar` (`polymer I of`, `polymer II of`) VALUES
 ('2-Acrylamido-2-methyl- propanesulfonic acid', 'Vinylpyridine'),
 ('Acrylic acid', 'Acrylamide'),
 ('Acrylic acid', 'Acrylamide-co-N,N-dimethyl-'),
@@ -1187,7 +1187,7 @@ INSERT INTO `polymer miscibility dissimilar` (`ï»¿polymer I of`, `polymer II 
 --
 
 CREATE TABLE `polymer miscibility similar monomer` (
-  `ï»¿polymer I of` text DEFAULT NULL,
+  `polymer I of` text DEFAULT NULL,
   `polymer II of` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1195,7 +1195,7 @@ CREATE TABLE `polymer miscibility similar monomer` (
 -- Dumping data for table `polymer miscibility similar monomer`
 --
 
-INSERT INTO `polymer miscibility similar monomer` (`ï»¿polymer I of`, `polymer II of`) VALUES
+INSERT INTO `polymer miscibility similar monomer` (`polymer I of`, `polymer II of`) VALUES
 ('Acrylic acid-co-styrene', 'Methyl methacrylate-co-styrene'),
 ('Acrylonitrile-co-butadiene', 'Acrylonitrile-co-butadiene'),
 ('Acrylonitrile-co-butadiene', 'Acrylonitrile-co-styrene'),
@@ -1254,7 +1254,7 @@ INSERT INTO `polymer miscibility similar monomer` (`ï»¿polymer I of`, `polyme
 --
 
 CREATE TABLE `polymer names` (
-  `ï»¿Polymers` text DEFAULT NULL,
+  `polymers` text DEFAULT NULL,
   `CAS numbers` varchar(10) NOT NULL,
   `Acronym` text DEFAULT NULL,
   `Alias` text DEFAULT NULL
@@ -1264,7 +1264,7 @@ CREATE TABLE `polymer names` (
 -- Dumping data for table `polymer names`
 --
 
-INSERT INTO `polymer names` (`ï»¿Polymers`, `CAS numbers`, `Acronym`, `Alias`) VALUES
+INSERT INTO `polymer names` (`polymers`, `CAS numbers`, `Acronym`, `Alias`) VALUES
 ('polyamide 12', '24937-16-4', 'nylon 12', ''),
 ('Poly(vinylidene fluoride)', '24937-79-9', 'PVDF', ''),
 ('Poly(oxytetramethylene-oxyterephthaloyl )/Poly(butylene terephthalate)', '24968-12-5', '', ''),
@@ -1299,7 +1299,7 @@ INSERT INTO `polymer names` (`ï»¿Polymers`, `CAS numbers`, `Acronym`, `Alias`
 --
 
 CREATE TABLE `refractive index` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `n` text DEFAULT NULL,
   `T (Ã‚Â°C)` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1308,7 +1308,7 @@ CREATE TABLE `refractive index` (
 -- Dumping data for table `refractive index`
 --
 
-INSERT INTO `refractive index` (`ï»¿polymer`, `n`, `T (Ã‚Â°C)`) VALUES
+INSERT INTO `refractive index` (`polymer`, `n`, `T (Ã‚Â°C)`) VALUES
 ('Benzyl cellulose', '1.47-1.58', ''),
 ('Butylphenol formaldehyde resin', '1.66', ''),
 ('Butyl rubber', '1.508', ''),
@@ -1367,7 +1367,7 @@ INSERT INTO `refractive index` (`ï»¿polymer`, `n`, `T (Ã‚Â°C)`) VALUES
 --
 
 CREATE TABLE `rheological` (
-  `ï»¿Polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `Melt flow temperature` bigint(20) DEFAULT NULL,
   `Melt flow rate dg/min lower` bigint(20) DEFAULT NULL,
   `Melt flow rate dg/min upper` bigint(20) DEFAULT NULL,
@@ -1379,7 +1379,7 @@ CREATE TABLE `rheological` (
 -- Dumping data for table `rheological`
 --
 
-INSERT INTO `rheological` (`ï»¿Polymer`, `Melt flow temperature`, `Melt flow rate dg/min lower`, `Melt flow rate dg/min upper`, `melt viscosity (capilary rheometer) kPa lower`, `melt viscosity (capilary rheometer) kPa upper`) VALUES
+INSERT INTO `rheological` (`polymer`, `Melt flow temperature`, `Melt flow rate dg/min lower`, `Melt flow rate dg/min upper`, `melt viscosity (capilary rheometer) kPa lower`, `melt viscosity (capilary rheometer) kPa upper`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0),
@@ -1414,7 +1414,7 @@ INSERT INTO `rheological` (`ï»¿Polymer`, `Melt flow temperature`, `Melt flow 
 --
 
 CREATE TABLE `shear` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `shear modulus` bigint(20) DEFAULT NULL,
   `shear stress at break` bigint(20) DEFAULT NULL,
   `shear stress yield` bigint(20) DEFAULT NULL,
@@ -1427,7 +1427,7 @@ CREATE TABLE `shear` (
 -- Dumping data for table `shear`
 --
 
-INSERT INTO `shear` (`ï»¿polymer`, `shear modulus`, `shear stress at break`, `shear stress yield`, `storage modulus`, `loss modulus`, `critical shear rate`) VALUES
+INSERT INTO `shear` (`polymer`, `shear modulus`, `shear stress at break`, `shear stress yield`, `storage modulus`, `loss modulus`, `critical shear rate`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0),
@@ -1462,7 +1462,7 @@ INSERT INTO `shear` (`ï»¿polymer`, `shear modulus`, `shear stress at break`, 
 --
 
 CREATE TABLE `solubility parameters solvents` (
-  `ï»¿solvent` text DEFAULT NULL,
+  `solvent` text DEFAULT NULL,
   `CAS registry no.` text DEFAULT NULL,
   `solub. param., ÃŽÂ´ (MPa1/2)` double DEFAULT NULL,
   `solub. param., ÃŽÂ´ ((cal/cm3)1/2)` double DEFAULT NULL,
@@ -1473,7 +1473,7 @@ CREATE TABLE `solubility parameters solvents` (
 -- Dumping data for table `solubility parameters solvents`
 --
 
-INSERT INTO `solubility parameters solvents` (`ï»¿solvent`, `CAS registry no.`, `solub. param., ÃŽÂ´ (MPa1/2)`, `solub. param., ÃŽÂ´ ((cal/cm3)1/2)`, `H-bonding group`) VALUES
+INSERT INTO `solubility parameters solvents` (`solvent`, `CAS registry no.`, `solub. param., ÃŽÂ´ (MPa1/2)`, `solub. param., ÃŽÂ´ ((cal/cm3)1/2)`, `H-bonding group`) VALUES
 ('Acetaldehyde', '7/6/1975', 21.1, 10.3, 'm'),
 ('Acetic acid', '64-19-7', 20.7, 10.2, 's'),
 ('Acetic anhydride', '108-24-7', 21.1, 10.3, 's'),
@@ -1532,7 +1532,7 @@ INSERT INTO `solubility parameters solvents` (`ï»¿solvent`, `CAS registry no.
 --
 
 CREATE TABLE `solvents and non solvents` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `solvents` text DEFAULT NULL,
   `nonsolvents` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1541,7 +1541,7 @@ CREATE TABLE `solvents and non solvents` (
 -- Dumping data for table `solvents and non solvents`
 --
 
-INSERT INTO `solvents and non solvents` (`ï»¿polymer`, `solvents`, `nonsolvents`) VALUES
+INSERT INTO `solvents and non solvents` (`polymer`, `solvents`, `nonsolvents`) VALUES
 ('1.1. POLY(DIENES), POLY(ACETYLENES) (see also 6.1, 6.2)', '', ''),
 ('Poly(dienes)', '', ''),
 ('Poly(allene)', 'Bzn., halogenated hydrocarbons', 'Hexane, methanol'),
@@ -1600,7 +1600,7 @@ INSERT INTO `solvents and non solvents` (`ï»¿polymer`, `solvents`, `nonsolven
 --
 
 CREATE TABLE `tensile` (
-  `ï»¿Polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `tensile modulus Mpa lower` bigint(20) DEFAULT NULL,
   `tensile modulus Mpa upper` bigint(20) DEFAULT NULL,
   `tensile strength break lower` bigint(20) DEFAULT NULL,
@@ -1619,7 +1619,7 @@ CREATE TABLE `tensile` (
 -- Dumping data for table `tensile`
 --
 
-INSERT INTO `tensile` (`ï»¿Polymer`, `tensile modulus Mpa lower`, `tensile modulus Mpa upper`, `tensile strength break lower`, `tensile strength break upper`, `tensile strength yield lower`, `tensile strength yield upper`, `elongation at break lower`, `elongation at break upper`, `elongation at yield lower`, `elongation at yield upper`, `storage modulus`, `loss modulus`) VALUES
+INSERT INTO `tensile` (`polymer`, `tensile modulus Mpa lower`, `tensile modulus Mpa upper`, `tensile strength break lower`, `tensile strength break upper`, `tensile strength yield lower`, `tensile strength yield upper`, `elongation at break lower`, `elongation at break upper`, `elongation at yield lower`, `elongation at yield upper`, `storage modulus`, `loss modulus`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -1654,7 +1654,7 @@ INSERT INTO `tensile` (`ï»¿Polymer`, `tensile modulus Mpa lower`, `tensile mo
 --
 
 CREATE TABLE `thermal` (
-  `ï»¿polymer` text DEFAULT NULL,
+  `polymer` text DEFAULT NULL,
   `Tg (lower)` bigint(20) DEFAULT NULL,
   `Tg upper` bigint(20) DEFAULT NULL,
   `Tm lower` bigint(20) DEFAULT NULL,
@@ -1679,7 +1679,7 @@ CREATE TABLE `thermal` (
 -- Dumping data for table `thermal`
 --
 
-INSERT INTO `thermal` (`ï»¿polymer`, `Tg (lower)`, `Tg upper`, `Tm lower`, `Tm upper`, `heat of fusion (kj/kg) lower`, `heat of fusion (kj/kg) upper`, `crystallization temp`, `heat of crystallization`, `linear expansion K-1 lower`, `linear expansion K-1 upper`, `volume expansion`, `thermal conductivity W/m/K lower`, `thermal conductivity W/m/K upper`, `thermal diffusivity`, `Cp kJ/kg/K lower`, `Cp kJ/kg/K upper`, `Processing temp lower`, `Processing temp upper`) VALUES
+INSERT INTO `thermal` (`polymer`, `Tg (lower)`, `Tg upper`, `Tm lower`, `Tm upper`, `heat of fusion (kj/kg) lower`, `heat of fusion (kj/kg) upper`, `crystallization temp`, `heat of crystallization`, `linear expansion K-1 lower`, `linear expansion K-1 upper`, `volume expansion`, `thermal conductivity W/m/K lower`, `thermal conductivity W/m/K upper`, `thermal diffusivity`, `Cp kJ/kg/K lower`, `Cp kJ/kg/K upper`, `Processing temp lower`, `Processing temp upper`) VALUES
 ('ETHYLENE-PROPYLENE-DIENE-TERPOLYMER', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 ('poly(acrylonitrile)', 85, 104, 320, 320, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0),
 ('POLY(BUTADIENE-CO-ACRYLONITRILE)', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
