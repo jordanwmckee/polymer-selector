@@ -78,9 +78,40 @@ use LDAP\Result;
     </div>
 </body>
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header {
+        text-align: center;
+        background-color: crimson;
+        width: 100%;
+    }
+
+    #header h1 {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px 0;
+    }
+
+    #view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     table {
         border-collapse: collapse;
         width: 70%;
+        overflow-x: scroll;
     }
 
     td, th {
