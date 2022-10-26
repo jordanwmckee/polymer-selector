@@ -50,7 +50,7 @@ use LDAP\Result;
         <?php
             // initialize db connection and construct query
             $conn = OpenCon();
-            $sql = "SELECT * FROM Bars;";
+            $sql = "SELECT * FROM `physical properties monomers`;";
             $result = $conn->query($sql);
             $all_property = array();  //declare an array for saving property
 
