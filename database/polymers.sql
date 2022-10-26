@@ -24,6 +24,38 @@ CREATE DATABASE IF NOT EXISTS `polymer_selectordb` DEFAULT CHARACTER SET utf8mb4
 USE `polymer_selectordb`;
 
 -- --------------------------------------------------------
+-- Table Overview
+-- --------------
+-- cas numbers
+-- chemical resistance
+-- co-crystalize
+-- compression
+-- creep
+-- electrical
+-- flexural
+-- glass transition
+-- heat
+-- heats of solution
+-- impact
+-- master data table
+-- melting points
+-- miscibility dissimilar triads
+-- more polymer miscibility
+-- permeability coefficients
+-- physical constants of solvents
+-- physical properties monomers
+-- physicochemical property
+-- polymer miscibility dissimilar
+-- polymer miscibility similar monomer
+-- polymer names
+-- refractive index
+-- rheological
+-- sheer
+-- solubility parameters solvents
+-- solvents and non solvents
+-- tensile
+-- thermal
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `cas numbers`
