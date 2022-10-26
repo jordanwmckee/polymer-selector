@@ -47,7 +47,49 @@ use LDAP\Result;
 
     </div>
     <div id="view"> <!-- this is where the results of the queries are formatted into a display -->
+        <?php
+            $conn = OpenCon();
+            $sql = "SELECT * FROM Bars;";
+            $result = $conn->query($sql);
+            $all_property = array();  //declare an array for saving property
 
+            //showing property
+            echo '<table class="data-table">
+                    <tr class="data-heading">';  //initialize table tag
+            while ($property = mysqli_fetch_field($result)) {
+                echo '<td><strong>' . $property->name . '</strong></td>';  //get field name for header
+                $all_property[] = $property->name;  //save those to array
+            }
+            echo '</tr>'; //end tr tag
+
+            //showing all data
+            while ($row = mysqli_fetch_array($result)) {
+                echo "<tr>";
+                foreach ($all_property as $item) {
+                    echo '<td>' . $row[$item] . '</td>'; //get items using property value
+                }
+                echo '</tr>';
+            }
+            echo "</table>";
+
+            CloseCon($conn);
+        ?>
     </div>
 </body>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 70%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
 </html>
