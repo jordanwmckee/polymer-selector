@@ -2,6 +2,7 @@
 
 use LDAP\Result;
 include 'db_connection.php';
+include 'query_db.php';
 
 ?>
 
@@ -45,6 +46,9 @@ include 'db_connection.php';
             </div>
             <div id="column-filter">
                 <!-- fill in values here dynamically based on selection from table select -->
+                <?php
+                if ($result = getTable()) displayColumns($result)
+                ?>
             </div>
         </form>
     </div>
@@ -53,7 +57,7 @@ include 'db_connection.php';
     <!-- query output section -->
     <div id="view">
         <?php
-            include 'get_table.php';
+        if ($result = getTable()) displayTable($result)
         ?>
     </div>
     <!-- end query output section -->
