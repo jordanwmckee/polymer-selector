@@ -16,6 +16,17 @@ function parseURL() {
 
    return $params;
 }
+/*
+You can also access url query component table with $table = $_GET['table'] 
+
+If the url params are unknown, you can access them by looping through $_GET array
+$arguments = array();
+foreach( $_GET as $key => $value ) {
+    $arguments[$key] = $value
+}
+
+for multiple params: https://stackoverflow.com/questions/13763485/is-it-possible-to-create-a-mysql-query-based-on-all-unknown-get-parameters-o
+*/
 
 //pre: getTable() called to query current selected table data
 //post: table name is parsed from url and results are returned
@@ -32,6 +43,19 @@ function getTable() {
         } catch (Exception $e) {
             //echo 'Uh oh, ',  $e->getMessage(), "\n";
         }
+    }
+    return $result;
+}
+
+function queryTable() {
+    $params = parseURL();
+
+    if ($params['table'] != '') {
+        try {
+            $conn = OpenCon();
+            $sql = "SELECT * FROM `$params[table]` WHERE `$params[query]`=`$params[name]`;";   
+            $result = $conn->query($sql);     
+        } catch (Exception $e) {}
     }
     return $result;
 }

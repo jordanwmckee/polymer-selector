@@ -1,8 +1,14 @@
 <?php
 
 use LDAP\Result;
-include 'db_connection.php';
-include 'query_db.php';
+include '../code/db_connection.php';
+include '../code/query_db.php';
+
+$conn = OpenCon();
+CloseCon($conn);
+
+// TODO: create a create_db.php script, possibly dockerize application
+// phpmyadmin docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
 
 ?>
 
@@ -13,7 +19,7 @@ include 'query_db.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polymer Selector</title>
-    <link rel="stylesheet" href="./styles/style.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
 </head>
 <body>
 
@@ -47,7 +53,10 @@ include 'query_db.php';
             <div id="column-filter">
                 <!-- fill in values here dynamically based on selection from table select -->
                 <?php
-                if ($result = getTable()) displayColumns($result)
+                if ($result = getTable()) {
+                    echo "<h4>Filter Options</h4>";
+                    displayColumns($result);
+                }
                 ?>
             </div>
         </form>
@@ -63,5 +72,5 @@ include 'query_db.php';
     <!-- end query output section -->
 
 </body>
-<script type="text/javascript" src="./scripts/script.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
 </html>
