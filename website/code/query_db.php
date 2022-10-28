@@ -1,5 +1,7 @@
 <?php
+$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
+/*
 // pre: function called to get url parameters
 // post: current url is parsed and all parameters returned as $params
 function parseURL() {
@@ -16,6 +18,8 @@ function parseURL() {
 
    return $params;
 }
+*/
+
 /*
 You can also access url query component table with $table = $_GET['table'] 
 
@@ -28,37 +32,73 @@ foreach( $_GET as $key => $value ) {
 for multiple params: https://stackoverflow.com/questions/13763485/is-it-possible-to-create-a-mysql-query-based-on-all-unknown-get-parameters-o
 */
 
-//pre: getTable() called to query current selected table data
-//post: table name is parsed from url and results are returned
-function getTable() {
-    $params = parseURL();
-        
-    if ($params['table'] != '') {
-        try {
-            // initialize db connection and query all data from table
-            $conn = OpenCon();
-            $sql = "SELECT * FROM `$params[table]`;"; // .$params[table] is result of url parsing
-            $result = $conn->query($sql);
-            CloseCon($conn);
-        } catch (Exception $e) {
-            //echo 'Uh oh, ',  $e->getMessage(), "\n";
-        }
+//pre: function called with valid connection data and tablename passed
+//post: array containing column names of specified table returned
+function getColumnNames($conn, $table) {
+    $sql = 'DESCRIBE '.$table;
+    $result = mysqli_query($conn, $sql);
+  
+    $rows = array();
+    while($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row['Field'];
     }
-    return $result;
-}
+  
+    return $rows;
+  }
 
+//pre: function called to parse url and construct query based on results
+//post: query is constructed appropriately, and the result of query is returned
 function queryTable() {
-    $params = parseURL();
+    $where = " WHERE ";
+    $secondClause = FALSE;
 
-    if ($params['table'] != '') {
-        try {
+    if (isset($_GET['table'])) {
+        $table = $_GET['table'];
+    }
+
+    if (isset($table) && $table != '') {
+        try { 
             $conn = OpenCon();
-            $sql = "SELECT * FROM `$params[table]` WHERE `$params[query]`=`$params[name]`;";   
-            $result = $conn->query($sql);     
+
+            $table_columns = getColumnNames($conn, $table);
+
+            // loop through url arguments, check if the key exists
+            // as a name in the given table.
+            // If so, append to the WHERE clause in the query
+            foreach($_GET as $key => $value) {
+
+                // if key contains '_', replace it with a space
+                if (strpos($key, '_') !== FALSE) {
+                    $key = str_replace("_", " ", $key);
+                }
+
+                // check if key is a name of one of the table columns
+                if (in_array($key, $table_columns)) {
+                    if ($secondClause) {
+                        $where .= " AND `$key`='$value'";
+                    }
+                    else {
+                        $where .= "`$key`='$value'";
+                        $secondClause = TRUE;
+                    }
+                }
+            }
+            $where .= ";";
+
+            if ($where == " WHERE ;") {
+                $where = ";";
+            }   
+
+            $sql = "SELECT * FROM `$table` ".$where;  
+            echo $sql; 
+            $result = $conn->query($sql);
+            CloseCon($conn);    
         } catch (Exception $e) {}
     }
     return $result;
 }
+
+//TODO: use getColumnNames as loops in displayTable and displayColumns
 
 //pre: valid query results are passed in function call
 //post: full query results displayed/outputted in a table in html
@@ -91,12 +131,14 @@ function displayColumns($result) {
     $all_property = array();  //declare an array for saving property
 
     //showing property
-    echo '<ol>';
+    echo '<form id="colum-filter"><ol>';
     while ($property = mysqli_fetch_field($result)) {
-        echo '<li>' . $property->name . '</li>';  //get field names for header
+        echo '<li>' . $property->name . ' <input type="text"></li>';  //get field names for header
         $all_property[] = $property->name;  //save those to array
     }
-    echo '</ol>'; //end ol tag
+    echo '  </ol>
+            <input type="button" action="submit" value="Apply Filter" onclick="filterTable()">
+        </form>'; //end ol tag
 }
 
 ?>

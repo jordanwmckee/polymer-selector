@@ -25,7 +25,10 @@ CloseCon($conn);
 
     <!-- header section -->
     <div id="header">
-        <h1>Polymer Selector</h1>
+        <div class="title">
+            <h1>Polymer Selector</h1>
+            <!-- <img src="../assets/atom.svg" style="width: 20px; height: 20px"/> -->
+        </div>
         <div class="nav-list">
             <ul>
                 <li><a href="index.php" data-after="View">View</a></li>
@@ -39,21 +42,19 @@ CloseCon($conn);
 
     <!-- table filter section -->
     <div id="config">
-        <form action="query_table.php" method="post">
+        <form method="post">
             <div id="table-select">
                 <label for="polymer-categories">Attributes</label>
                 <select id="tables" name="polymer-categories" id="polymer-categories">
                     <option value="" selected>None</option>
-                    <option value="physical properties monomers">Physical Properties</option>
-                    <option value="chemical">Chemical Properties</option>
-                    <option value="other">other</option>
-                    <option value="other2">other</option>
+                    <option value="basic_info">Basic Info</option>
+                    <option value="physical_properties">Physical Properties</option>
                 </select>
             </div>
             <div id="column-filter">
                 <!-- fill in values here dynamically based on selection from table select -->
                 <?php
-                if ($result = getTable()) {
+                if ($result = queryTable()) {
                     echo "<h4>Filter Options</h4>";
                     displayColumns($result);
                 }
@@ -66,7 +67,7 @@ CloseCon($conn);
     <!-- query output section -->
     <div id="view">
         <?php
-        if ($result = getTable()) displayTable($result)
+        if ($result = queryTable()) displayTable($result)
         ?>
     </div>
     <!-- end query output section -->
