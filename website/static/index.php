@@ -54,9 +54,9 @@ CloseCon($conn);
             <div id="column-filter">
                 <!-- fill in values here dynamically based on selection from table select -->
                 <?php
-                if ($result = queryTable()) {
-                    echo "<h4>Filter Options</h4>";
-                    displayColumns($result);
+                if (checkForTable()) {
+                    echo "<h4>Filter</h4>";
+                    displayColumns();
                 }
                 ?>
             </div>
