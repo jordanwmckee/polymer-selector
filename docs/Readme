@@ -4,7 +4,7 @@ separate folder somewhere well outside of this client's folder.
 
 building dockerfile:
 
-docker buildx build --load -t php-test -f docs/Dockerfile .
+docker buildx build --load -t jordanwmckee/polymer-selector -f docs/Dockerfile .
 
 OpenCon() change:
 

@@ -9,6 +9,7 @@ function checkForTable() {
         $conn = OpenCon();
         isset($_GET['table']) ? $table=$_GET['table'] : $table = "";
         $val = mysqli_query($conn, "select 1 from `$table` LIMIT 1");
+        CloseCon($conn);
         if ($val) 
             return true;
     } catch (Exception $e) {
