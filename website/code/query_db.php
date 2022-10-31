@@ -16,10 +16,21 @@ function checkForTable() {
     }
 }
 
+//pre: function called within html form to add options from db
+//post: options are created for each table detected in db
+function addToDropdown() {
+    $conn = OpenCon();
+    $result = mysqli_query($conn, "show tables"); 
+    while($table = mysqli_fetch_array($result)) {
+        echo "<option value='$table[0]'>$table[0]</option>";
+    }
+    CloseCon($conn);
+}
+
 //pre: function called with valid connection data and tablename passed
 //post: array containing column names of specified table returned
 function getColumnNames($conn, $table) {
-    $sql = 'DESCRIBE '.$table;
+    $sql = "DESCRIBE `$table`";
     $result = mysqli_query($conn, $sql);
   
     $rows = array();
@@ -73,11 +84,6 @@ function queryTable() {
             // If so, append to the WHERE clause in the query
             foreach($_GET as $key => $value) {
 
-                // if key contains '_', replace it with a space
-                if (strpos($key, '_') !== FALSE) {
-                    $key = str_replace("_", " ", $key);
-                }
-
                 // check if key is a name of one of the table columns
                 if (in_array($key, $table_columns)) {
 
@@ -105,7 +111,9 @@ function queryTable() {
             echo $sql; 
             $result = $conn->query($sql);
             CloseCon($conn);    
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+            echo 'Caught exception: ',  $e->getMessage(), "\n";
+        }
     }
     return $result;
 }
@@ -125,7 +133,7 @@ function displayColumns() {
     $rows = getColumnNames($conn, $table);
 
     // output 
-    echo '<form id="filter-form"><ol>';
+    echo '<form id="filter-form"><ul>';
     foreach ($rows as $value) {
         echo '<div class="filter-row">
                 <li class="col-name">'.$value.'
@@ -141,7 +149,7 @@ function displayColumns() {
                </li>
             </div>';
     }
-    echo '  </ol>
+    echo '  </ul>
             <button type="button" id="submit-filter">Apply Filters</button>
             <button type="button" id="remove-filter">Remove Filters</button>
         </form>';
@@ -170,6 +178,27 @@ function displayTable($result) {
         echo '</tr>';
     }
     echo "</table>";
+}
+
+//pre: 
+//post: 
+function updateTable() {
+    $conn = OpenCon();
+
+    if (isset($_GET['table'])) {
+        $table = $_GET['table'];
+    } else {
+        echo "Table not found!\n";
+        return;
+    }
+
+    $rows = getColumnNames($conn, $table);
+
+    // output
+    echo '<div id="update-table>"';
+    foreach ($rows as $value) {
+        
+    }
 }
 
 
@@ -203,6 +232,13 @@ foreach( $_GET as $key => $value ) {
 }
 
 for multiple params: https://stackoverflow.com/questions/13763485/is-it-possible-to-create-a-mysql-query-based-on-all-unknown-get-parameters-o
+*/
+
+/*
+// if key contains '_', replace it with a space
+if (strpos($key, '_') !== FALSE) {
+    $key = str_replace("_", " ", $key);
+}
 */
 
 ?>

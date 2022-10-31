@@ -34,43 +34,66 @@ CloseCon($conn);
                 <li><a href="index.php" data-after="View">View</a></li>
                 <li><a href="search.php" data-after="Search">Search</a></li>
                 <li><a href="compare.php" data-after="Compare">Compare</a></li>
-                <li><a href="update.php" data-after="Update">Update</a></li>
+                <li><a href="#update" data-after="Update">Update</a></li>
             </ul>
         </div>
     </div>
     <!-- end header section -->
 
-    <!-- table filter section -->
-    <div id="config">
-        <form method="post">
-            <div id="table-select">
-                <label for="polymer-categories">Attributes</label>
-                <select id="tables" name="polymer-categories" id="polymer-categories">
-                    <option value="" selected>None</option>
-                    <option value="basic_info">Basic Info</option>
-                    <option value="physical_properties">Physical Properties</option>
-                </select>
-            </div>
-            <div id="column-filter">
-                <!-- fill in values here dynamically based on selection from table select -->
-                <?php
-                if (checkForTable()) {
-                    echo "<h4>Filter</h4>";
-                    displayColumns();
-                }
-                ?>
-            </div>
-        </form>
-    </div>
-    <!-- end table filter section -->
+    <div id="content">
+        
+        <!-- table filter section -->
+        <div id="config">
+            <form method="post">
+                <div id="table-select">
+                    <label for="polymer-categories">Attributes</label>
+                    <select id="tables" name="polymer-categories" id="polymer-categories">
+                        <option value="" selected>None</option>
+                        <?php
+                        addToDropdown();
+                        ?>
+                    </select>
+                </div>
+                <div id="column-filter">
+                    <!-- fill in values here dynamically based on selection from table select -->
+                    <?php
+                    if (checkForTable()) {
+                        echo "<h3>Filter</h3>";
+                        displayColumns();
+                    }
+                    ?>
+                </div>
+            </form>
+        </div>
+        <!-- end table filter section -->
 
-    <!-- query output section -->
-    <div id="view">
-        <?php
-        if ($result = queryTable()) displayTable($result)
-        ?>
+        <!-- query output section -->
+        <div id="view">
+            <?php
+            if ($result = queryTable()) {
+                echo "<h3>Table View</h3>";
+                echo "<div id='output'>";
+                displayTable($result);
+                echo "</div>";
+            }
+            ?>
+        </div>
+        <!-- end query output section -->
+
+        <br><br>
+
+        <!-- update section -->
+        <div id="update">
+            <?php
+            if (checkForTable()) {
+                echo '<h2>Insert/Update Database</h2>';
+                updateTable();
+            }
+            ?>
+        </div>
+        <!-- end update section -->
+
     </div>
-    <!-- end query output section -->
 
 </body>
 <script type="text/javascript" src="./js/script.js"></script>
