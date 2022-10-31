@@ -80,7 +80,7 @@ a {
 }
 
 #output {
-    width: 100%;
+    max-width: 100%;
     overflow: scroll;
 }
 

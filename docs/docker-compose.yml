@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+    php-apache-environment:
+        image: jordanwmckee/polymer-selector
+        depends_on:
+            - db
+        ports:
+            - 80:80
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - '8080:80'
+        restart: always
+        environment:
+            PMA_HOST: db
+        depends_on:
+            - db
+
+    db:
+        container_name: db
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: pass
+            MYSQL_DATABASE: MYSQL_DATABASE
+            MYSQL_USER: user
+            MYSQL_PASSWORD: pass
+        ports:
+            - "9906:3306"

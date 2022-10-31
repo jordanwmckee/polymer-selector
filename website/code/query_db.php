@@ -7,7 +7,7 @@ $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http
 function checkForTable() {
     try {
         $conn = OpenCon();
-        $table = $_GET['table'];
+        isset($_GET['table']) ? $table=$_GET['table'] : $table = "";
         $val = mysqli_query($conn, "select 1 from `$table` LIMIT 1");
         if ($val) 
             return true;
@@ -84,6 +84,11 @@ function queryTable() {
             // If so, append to the WHERE clause in the query
             foreach($_GET as $key => $value) {
 
+                //  if $_GET converts spaces to underscores, convert them back
+                if (strpos($key, '_') !== FALSE) {
+                    $key = str_replace("_", " ", $key);
+                }
+
                 // check if key is a name of one of the table columns
                 if (in_array($key, $table_columns)) {
 
@@ -110,12 +115,13 @@ function queryTable() {
             $sql = "SELECT * FROM `$table` ".$where;  
             echo $sql; 
             $result = $conn->query($sql);
-            CloseCon($conn);    
+            CloseCon($conn);  
+            return $result;
         } catch (Exception $e) {
             echo 'Caught exception: ',  $e->getMessage(), "\n";
         }
     }
-    return $result;
+    return null;
 }
 
 //pre: valid query result passed in function call

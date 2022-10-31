@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `polymers`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `basic_info`
+-- Table structure for table `basic info`
 --
 
-CREATE TABLE `basic_info` (
+CREATE TABLE `basic info` (
   `name` varchar(50) DEFAULT NULL,
   `other name` varchar(25) DEFAULT NULL,
   `formula` varchar(50) DEFAULT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE `basic_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `basic_info`
+-- Dumping data for table `basic info`
 --
 
-INSERT INTO `basic_info` (`name`, `other name`, `formula`, `molecular weight`, `density`, `melting point`, `boiling point`) VALUES
+INSERT INTO `basic info` (`name`, `other name`, `formula`, `molecular weight`, `density`, `melting point`, `boiling point`) VALUES
 ('low-density polyethylene', 'LDPE', '(C2H4)n', 30000, 0.91, 106, 105),
 ('high-density polyethylene', 'HDPE', '(C2H4)n', 200000, 0.941, 125, 130.8),
 ('polypropylene', 'PP', '[CH2-CH(CH3)]n', 354.6, 0.926, 173, 160),
@@ -53,7 +53,7 @@ INSERT INTO `basic_info` (`name`, `other name`, `formula`, `molecular weight`, `
 -- Table structure for table `physical_properties`
 --
 
-CREATE TABLE `physical_properties` (
+CREATE TABLE `physical properties` (
   `name` varchar(25) DEFAULT NULL,
   `tensile strength` int(2) DEFAULT NULL,
   `hardness` int(1) DEFAULT NULL
@@ -63,7 +63,7 @@ CREATE TABLE `physical_properties` (
 -- Dumping data for table `physical_properties`
 --
 
-INSERT INTO `physical_properties` (`name`, `tensile strength`, `hardness`) VALUES
+INSERT INTO `physical properties` (`name`, `tensile strength`, `hardness`) VALUES
 ('low-density polyethylene', 50, 5),
 ('high-density polyethylene', 20, 2),
 ('polypropylene', 60, 8),

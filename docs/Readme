@@ -2,3 +2,23 @@ This is where you'd put non-sensitive client documents. If you have documents
 that you'd rather the client never saw, then you should have a completely
 separate folder somewhere well outside of this client's folder.
 
+building dockerfile:
+
+docker buildx build --load -t php-test -f docs/Dockerfile .
+
+OpenCon() change:
+
+function OpenCon() {
+   $dbhost = "db";
+   $dbuser = "root";
+   $dbpass = "pass";
+   $db = "polymer_selectordb";
+
+   $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+   
+   return $conn;
+}
+
+Docker Help:
+
+https://alysivji.github.io/php-mysql-docker-containers.html

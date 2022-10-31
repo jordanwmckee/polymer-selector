@@ -4,12 +4,6 @@ use LDAP\Result;
 include '../code/db_connection.php';
 include '../code/query_db.php';
 
-$conn = OpenCon();
-CloseCon($conn);
-
-// TODO: create a create_db.php script, possibly dockerize application
-// phpmyadmin docker image: https://hub.docker.com/r/phpmyadmin/phpmyadmin/
-
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +65,7 @@ CloseCon($conn);
         <div id="view">
             <?php
             if ($result = queryTable()) {
-                echo "<h3>Table View</h3>";
+                echo "<h2>Table View</h2><br>";
                 echo "<div id='output'>";
                 displayTable($result);
                 echo "</div>";
