@@ -29,7 +29,7 @@ validateDatabase();
                 <li><a href="index.php" data-after="View">View</a></li>
                 <li><a href="search.php" data-after="Search">Search</a></li>
                 <li><a href="compare.php" data-after="Compare">Compare</a></li>
-                <li><a href="#update" data-after="Update">Update</a></li>
+                <li><a href="javascript:openUpdateDropdown()" data-after="Update">Update</a></li>
             </ul>
         </div>
     </div>
@@ -47,7 +47,7 @@ validateDatabase();
         
         <!-- table filter section -->
         <div id="config">
-            <form id="formm">
+            <form class="formm">
                 <div id="table-select">
                     <button type="button" class="collapsible">Attributes</button>
                     <div class="content">
@@ -90,7 +90,7 @@ validateDatabase();
         <div id="update">
             <?php
             if (checkForTable()) {
-                echo '<button type="button" class="collapsible">Insert/Update Database</button><div class="content">';
+                echo '<button type="button" class="collapsible" id="update-content">Insert/Update Database</button><div class="content">';
                 updateTable();
                 echo '</div>';
             }
@@ -99,12 +99,6 @@ validateDatabase();
         <!-- end update section -->
 
     </div>
-
-    <!-- footer section -->
-    <div id="footer">
-        <h3>some information</h3>
-    </div>
-    <!-- end footer section -->
 
 </body>
 <script type="text/javascript" src="./js/script.js"></script>

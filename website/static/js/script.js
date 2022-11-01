@@ -47,10 +47,31 @@ function filterTable() {
     location.href = url;
 }
 
-// for collapsible filter section
+function openUpdateDropdown() {
+  if (!document.getElementById('update-content'))
+    return;
+  var updateButton = document.getElementById('update-content');
+  if (!updateButton.style.maxHeight) {
+    let content = updateButton.nextElementSibling;
+    content.style.maxHeight = content.scrollHeight + "px";
+    content.style.padding = "15px 18px";
+  }
+  updateButton.scrollIntoView();
+}
+
+// for collapsible filter section >>
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
+// start with collapsibles open
+for (i = 0; i < coll.length; i++) {
+  coll[i].classList.toggle("active");
+  var content = coll[i].nextElementSibling;
+  content.style.maxHeight = content.scrollHeight + "px";
+  content.style.padding = "15px 18px";
+}
+
+// add event listeners to open and close collapsibles
 for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");

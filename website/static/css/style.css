@@ -67,7 +67,7 @@ a {
     margin: 5px 0;
 }
 
-#formm {
+.formm {
     width: 100%;
 }
 
@@ -143,12 +143,3 @@ tr:nth-child(even) {
 #update {
     margin-bottom: 50px;
 }
-
-#footer {
-    width: 100%;
-    padding: 50px 0;
-    background-color: blueviolet;
-    color: white;
-    text-align: center;
-}
-

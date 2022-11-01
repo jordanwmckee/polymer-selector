@@ -202,7 +202,7 @@ function updateTable() {
     $rows = getColumnNames($conn, $table);
 
     // output 
-    echo '<form id="update-form"><ul>';
+    echo '<form class="formm"><ul>';
     foreach ($rows as $value) {
         echo '<div class="filter-row">
                 <li class="col-name">'.$value.'
