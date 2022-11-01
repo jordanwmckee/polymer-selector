@@ -14,8 +14,8 @@ jobs:
 
       - name: Set Up Env
         run: |
-          sed -i 's/$GLOBALS['DBHOST'] = '127.0.0.1';/$GLOBALS['DBHOST'] = 'db';/g' website/code/db_connection.php
-          sed -i "s/$GLOBALS['DBPASS'] = '';/$GLOBALS['DBPASS'] = 'pass';/g" website/code/db_connection.php
+          sed -i "s/GLOBALS['DBHOST'] = '127.0.0.1';/GLOBALS['DBHOST'] = 'db';/g" website/code/db_connection.php
+          sed -i "s/GLOBALS['DBPASS'] = '';/GLOBALS['DBPASS'] = 'pass';/g" website/code/db_connection.php
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
