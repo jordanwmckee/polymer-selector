@@ -52,6 +52,7 @@ function validateDatabase() {
                }
          }
       }
+      CloseCon($conn);
    } catch (Exception $e) {
       echo $e->getMessage();
    }

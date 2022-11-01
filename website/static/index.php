@@ -41,7 +41,7 @@ validateDatabase();
         <div id="config">
             <form method="post">
                 <div id="table-select">
-                    <label for="polymer-categories">Attributes</label>
+                    <label for="polymer-categories"><h2>Attributes</h2></label>
                     <select id="tables" name="polymer-categories" id="polymer-categories">
                         <option value="" selected>None</option>
                         <?php
@@ -53,8 +53,9 @@ validateDatabase();
                     <!-- fill in values here dynamically based on selection from table select -->
                     <?php
                     if (checkForTable()) {
-                        echo "<h3>Filter</h3>";
+                        echo '<button type="button" class="collapsible">Filter Table</button><div class="content">';
                         displayColumns();
+                        echo '</div>';
                     }
                     ?>
                 </div>
