@@ -32,5 +32,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build & Push Image
-        run: docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t jordanwmckee/php-app:latest --push .
+        run: docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t jordanwmckee/php-app:latest -f docs/Dockerfile --push .
 
