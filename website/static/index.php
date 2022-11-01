@@ -4,6 +4,7 @@ use LDAP\Result;
 include '../code/db_connection.php';
 include '../code/query_db.php';
 
+validateDatabase();
 ?>
 
 <!DOCTYPE html>

@@ -201,11 +201,18 @@ function updateTable() {
 
     $rows = getColumnNames($conn, $table);
 
-    // output
-    echo '<div id="update-table>"';
+    // output 
+    echo '<form id="update-form"><ul>';
     foreach ($rows as $value) {
-        
+        echo '<div class="filter-row">
+                <li class="col-name">'.$value.'
+                <input class="filter-value" type="text">
+               </li>
+            </div>';
     }
+    echo '  </ul>
+            <button type="button" id="submit-update">Submit</button>
+        </form>';
 }
 
 

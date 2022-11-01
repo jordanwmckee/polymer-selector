@@ -6,18 +6,14 @@ building dockerfile:
 
 docker buildx build --load -t jordanwmckee/polymer-selector -f docs/Dockerfile .
 
-OpenCon() change:
 
-function OpenCon() {
-   $dbhost = "db";
-   $dbuser = "root";
-   $dbpass = "pass";
-   $db = "polymer_selectordb";
+change variables in 'db_connection.php':
 
-   $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-   
-   return $conn;
-}
+$GLOBALS['DBHOST'] = 'db';
+$GLOBALS['DBUSER'] = 'root';
+$GLOBALS['DBPASS'] = 'pass';
+$GLOBALS['DBNAME'] = 'polymer_selectordb';
+
 
 Docker Help:
 

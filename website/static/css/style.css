@@ -51,7 +51,7 @@ a {
     overflow: hidden;
 }
 
-#config {
+#config, #update{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,11 +59,11 @@ a {
     margin: 30px;
 }
 
-#config div {
+#config div, #update div {
     margin: 15px 20px;
 }
 
-#config ul {
+#config ul, #update ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -86,7 +86,6 @@ a {
 
 .data-table {
     border-collapse: collapse;
-
 }
 
 td, th {
@@ -98,3 +97,4 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
