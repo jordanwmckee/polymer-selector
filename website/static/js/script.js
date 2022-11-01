@@ -12,12 +12,16 @@ const currentTable = url.searchParams.get('table');
 selectedTable.value = currentTable;
 
 // add event listener to remove filters when button clicked
-document.getElementById('remove-filter').addEventListener('click', () => {
-    location.href = `http://localhost?table=${currentTable}`;
-});
+if (document.getElementById('remove-filter') != null) {
+  document.getElementById('remove-filter').addEventListener('click', () => {
+      location.href = `http://localhost?table=${currentTable}`;
+  });
+}
 
 // add event listener to run filterTable() when filter button clicked
-document.getElementById('submit-filter').addEventListener('click', () => filterTable());
+if (document.getElementById('submit-filter') != null) {
+  document.getElementById('submit-filter').addEventListener('click', () => filterTable());
+}
 
 //pre: function called by clicking "apply filter" button to parse values in filter section
 //post: filter values detected and parsed and url is redirected to pass in filtered values

@@ -114,7 +114,7 @@ function queryTable() {
             }   
 
             $sql = "SELECT * FROM `$table` ".$where;  
-            echo $sql; 
+            //echo $sql; 
             $result = $conn->query($sql);
             CloseCon($conn);  
             return $result;

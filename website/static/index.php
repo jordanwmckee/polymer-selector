@@ -35,19 +35,29 @@ validateDatabase();
     </div>
     <!-- end header section -->
 
+    <!-- page title sectino -->
+    <div id="page-title" style="padding: 50px 0; width: 100%; background-color: #E2d0f3; text-align: center; color: white;">
+        <h1>View</h1>
+        <br>
+        <p>To get started, select an attribute table</p>
+    </div>
+    <!-- end page title section -->
+
     <div id="content">
         
         <!-- table filter section -->
         <div id="config">
-            <form method="post">
+            <form id="formm">
                 <div id="table-select">
-                    <label for="polymer-categories"><h2>Attributes</h2></label>
-                    <select id="tables" name="polymer-categories" id="polymer-categories">
-                        <option value="" selected>None</option>
-                        <?php
-                        addToDropdown();
-                        ?>
-                    </select>
+                    <button type="button" class="collapsible">Attributes</button>
+                    <div class="content">
+                        <select id="tables" name="polymer-categories" id="polymer-categories">
+                            <option value="" selected>None</option>
+                            <?php
+                            addToDropdown();
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <div id="column-filter">
                     <!-- fill in values here dynamically based on selection from table select -->
@@ -67,8 +77,8 @@ validateDatabase();
         <div id="view">
             <?php
             if ($result = queryTable()) {
-                echo "<h2>Table View</h2><br>";
-                echo "<div id='output'>";
+                echo "<button type='button' class='collapsible'>Table View</button>";
+                echo "<div id='output' class='content'>";
                 displayTable($result);
                 echo "</div>";
             }
@@ -76,20 +86,25 @@ validateDatabase();
         </div>
         <!-- end query output section -->
 
-        <br><br>
-
         <!-- update section -->
         <div id="update">
             <?php
             if (checkForTable()) {
-                echo '<h2>Insert/Update Database</h2>';
+                echo '<button type="button" class="collapsible">Insert/Update Database</button><div class="content">';
                 updateTable();
+                echo '</div>';
             }
             ?>
         </div>
         <!-- end update section -->
 
     </div>
+
+    <!-- footer section -->
+    <div id="footer">
+        <h3>some information</h3>
+    </div>
+    <!-- end footer section -->
 
 </body>
 <script type="text/javascript" src="./js/script.js"></script>
