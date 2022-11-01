@@ -187,8 +187,9 @@ function displayTable($result) {
     echo "</table>";
 }
 
-//pre: 
-//post: 
+//pre: user submits form after inputting values to update databse
+//post: values are parsed and appended to url and redirecting to update.php 
+//      to query database and insert or update
 function updateTable() {
     $conn = OpenCon();
 
@@ -202,17 +203,21 @@ function updateTable() {
     $rows = getColumnNames($conn, $table);
 
     // output 
-    echo '<form class="formm"><ul>';
+    $firstRow = TRUE;
+    $required = " required";
+    echo '<form id="update-form" class="formm">';
     foreach ($rows as $value) {
-        echo '<div class="filter-row">
-                <li class="col-name">'.$value.'
-                <input class="filter-value" type="text">
-               </li>
+        if (!$firstRow && $required !== "") 
+            $required = "";
+        echo '<div class="update-row">
+                <p>'.$value.'</p>
+                <input class="update-value" type="text" '.$required.'>
             </div>';
+        if ($firstRow)
+            $firstRow = FALSE;
     }
-    echo '  </ul>
-            <button type="button" id="submit-update">Submit</button>
-        </form>';
+    echo '</form>
+          <button type="button" id="submit-update">Submit</button>';
 }
 
 

@@ -92,6 +92,7 @@ a {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
     background-color: #f1f1f1;
+    width: 100%;
 }
 
 #config, #update{
@@ -102,6 +103,10 @@ a {
 }
 
 .filter-row {
+    margin: 15px 20px;
+}
+
+.update-row {
     margin: 15px 20px;
 }
 
@@ -142,4 +147,11 @@ tr:nth-child(even) {
 
 #update {
     margin-bottom: 50px;
+}
+
+#update-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
