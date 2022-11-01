@@ -2,7 +2,7 @@
 
 $GLOBALS['DBHOST'] = '127.0.0.1';
 $GLOBALS['DBUSER'] = 'root';
-$GLOBALS['DBPASS'] = '';
+$GLOBALS['DBPASS'] = 'pass';
 $GLOBALS['DBNAME'] = 'polymer_selectordb';
 
 //pre: function called assuming sql database exists with given credentials
