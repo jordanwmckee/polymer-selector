@@ -78,18 +78,19 @@ function submitUpdate() {
   location.href = url;
 }
 
-//pre: function called when update button on header is clicked
-//post: if update table dropdown is closed, open and goto location on page
-function openUpdateDropdown() {
-  if (!document.getElementById('update-content'))
+//pre: function called when button on header is clicked and id of section is passed
+//post: if table dropdown for passed section is closed, open and goto location on page
+function openDropdown(id) {
+  if (!document.getElementById(id))
     return;
-  var updateButton = document.getElementById('update-content');
-  if (!updateButton.style.maxHeight) {
-    let content = updateButton.nextElementSibling;
+    
+  var dropdown = document.getElementById(id);
+  if (!dropdown.style.maxHeight) {
+    let content = dropdown.nextElementSibling;
     content.style.maxHeight = content.scrollHeight + "px";
     content.style.padding = "15px 18px";
   }
-  updateButton.scrollIntoView();
+  dropdown.scrollIntoView();
 }
 
 // for collapsible filter section >>

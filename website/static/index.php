@@ -15,6 +15,7 @@ validateDatabase();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polymer Selector</title>
     <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -26,10 +27,10 @@ validateDatabase();
         </div>
         <div class="nav-list">
             <ul>
-                <li><a href="index.php" data-after="View">View</a></li>
-                <li><a href="search.php" data-after="Search">Search</a></li>
+                <li><a href="index.php" data-after="Home">Home</a></li>
+                <li><a href="javascript:openDropdown('search-dropdown')" data-after="Search">Search</a></li>
                 <li><a href="compare.php" data-after="Compare">Compare</a></li>
-                <li><a href="javascript:openUpdateDropdown()" data-after="Update">Update</a></li>
+                <li><a href="javascript:openDropdown('update-content')" data-after="Update">Update</a></li>
             </ul>
         </div>
     </div>
@@ -37,7 +38,7 @@ validateDatabase();
 
     <!-- page title sectino -->
     <div id="page-title" style="padding: 50px 0; width: 100%; background-color: #E2d0f3; text-align: center; color: white;">
-        <h1>View</h1>
+        <h1>View & Update Polymer Database</h1>
         <br>
         <p>To get started, select an attribute table</p>
     </div>
@@ -58,6 +59,22 @@ validateDatabase();
                             ?>
                         </select>
                     </div>
+                </div>
+                <div id="search">
+                    <?php 
+                    if (checkForTable()) {    
+                        echo
+                            '<button type="button" id="search-dropdown" class="collapsible">Search by Name</button>
+                            <div class="content">
+                                <div class="search-container">
+                                    <form action="">
+                                        <input type="text" placeholder="Polymer.." name="search">
+                                        <button type="button"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>';
+                    }
+                    ?>
                 </div>
                 <div id="column-filter">
                     <!-- fill in values here dynamically based on selection from table select -->
