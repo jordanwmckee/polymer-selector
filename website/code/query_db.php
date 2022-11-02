@@ -140,7 +140,7 @@ function displayColumns() {
     $rows = getColumnNames($conn, $table);
 
     // output 
-    echo '<form id="filter-form"><ul>';
+    echo '<form id="filter-form" class="formm"><ul>';
     foreach ($rows as $value) {
         echo '<div class="filter-row">
                 <li class="col-name">'.$value.'

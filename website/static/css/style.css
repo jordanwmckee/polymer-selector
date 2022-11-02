@@ -198,3 +198,7 @@ tr:nth-child(even) {
   #search .search-container button:hover {
     background: #ccc;
   }
+
+  #column-filter {
+    width: 100%;
+  }
