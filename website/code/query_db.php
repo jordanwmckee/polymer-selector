@@ -203,43 +203,16 @@ function updateTable() {
     $rows = getColumnNames($conn, $table);
 
     // output 
-    $firstRow = TRUE;
-    $required = " required";
     echo '<form id="update-form" class="formm">';
     foreach ($rows as $value) {
-        if (!$firstRow && $required !== "") 
-            $required = "";
         echo '<div class="update-row">
                 <p>'.$value.'</p>
-                <input class="update-value" type="text" '.$required.'>
+                <input class="update-value" type="text" required>
             </div>';
-        if ($firstRow)
-            $firstRow = FALSE;
     }
     echo '</form>
           <button type="button" id="submit-update">Submit</button>';
 }
-
-
-
-/*
-// pre: function called to get url parameters
-// post: current url is parsed and all parameters returned as $params
-function parseURL() {
-   // get url to output table with
-   //$url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-   $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-   // Use parse_url() function to parse the URL and return an associative array which contains its various components
-   // url should be http://localhost?table=sometablename
-   $url_components = parse_url($url);
-
-   // Use parse_str() function to parse the string passed via URL
-   parse_str($url_components['query'], $params);
-
-   return $params;
-}
-*/
 
 /*
 You can also access url query component table with $table = $_GET['table'] 
