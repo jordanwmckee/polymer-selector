@@ -21,15 +21,15 @@ SET time_zone = "+00:00";
 -- Database: `polymer_selectordb`
 --
 
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ADVprocedure1` (IN `low_prop` VARCHAR(50), IN `low_input` INT)   BEGIN
-Select Polymer from `tensile` Where `tensile modulus Mpa lower` >= low_input;
-END$$
+-- DELIMITER $$
+-- --
+-- -- Procedures
+-- --
+-- CREATE DEFINER=`root`@`localhost` PROCEDURE `ADVprocedure1` (IN `low_prop` VARCHAR(50), IN `low_input` INT)   BEGIN
+-- Select Polymer from `tensile` Where `tensile modulus Mpa lower` >= low_input;
+-- END$$
 
-DELIMITER ;
+-- DELIMITER ;
 
 -- --------------------------------------------------------
 
