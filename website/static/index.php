@@ -28,8 +28,9 @@ validateDatabase();
         <div class="nav-list">
             <ul>
                 <li><a href="index.php" data-after="Home">Home</a></li>
-                <li><a href="javascript:openDropdown('search-dropdown')" data-after="Search">Search</a></li>
+                <li><a href="SearchPolyPar.php" data-after="Search">Search</a></li>
                 <li><a href="compare.php" data-after="Compare">Compare</a></li>
+                <li><a href="SearchPolyReplace.php" data-after="Home">Replacer</a></li>
                 <li><a href="javascript:openDropdown('update-content')" data-after="Update">Update</a></li>
             </ul>
         </div>

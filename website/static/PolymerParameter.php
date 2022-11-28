@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <title>Polymer Parameter Search</title>
     <style></style>
-    <?php include '../code/db_connection.php';?>
+    <?php include '../code/db_connection.php'; ?>
     <link rel="stylesheet" href="./css/style.css" type="text/css">
-    </head>
+</head>
+
 <body>
-<!-- header section -->
-<div id="header">
+    <!-- header section -->
+    <div id="header">
         <div class="title">
             <h1>Polymer Selector</h1>
             <!-- <img src="../assets/atom.svg" style="width: 20px; height: 20px"/> -->
@@ -16,9 +18,9 @@
         <div class="nav-list">
             <ul>
                 <li><a href="index.php" data-after="Home">Home</a></li>
-                <li><a href="javascript:openDropdown('search-dropdown')" data-after="Search">Search</a></li>
+                <li><a href="SearchPolyPar.php" data-after="Search">Search</a></li>
                 <li><a href="compare.php" data-after="Compare">Compare</a></li>
-                <li><a href="javascript:openDropdown('update-content')" data-after="Update">Update</a></li>
+                <li><a href="SearchPolyReplace.php" data-after="Home">Replacer</a></li>
             </ul>
         </div>
     </div>
@@ -32,76 +34,84 @@
     </div>
     <!-- end page title section -->
 
-
-<?php 
-$conn = OpenCon();
-$tables = array();
-$attributes = array();
-$result = mysqli_query($conn, "show tables");
-while($table = mysqli_fetch_array($result)){
-if(empty($_GET[$table[0]])){}
-else{
-    array_push($tables, $table[0]);
-    array_push($attributes, $_GET[$table[0]."2"]);
-}}
-
-//Joins tables
-$j=0;
-$onlinker="";
-$joinner="";
-$from="";
-while($j < count($tables)){
-    if($j == 0){
-        if (count($tables) == 1){$from = "`".$tables[$j]."`";}
-        else{ $joinner = $joinner."`".$tables[$j]."` JOIN";
-        $onlinker = $onlinker."`".$tables[$j]."`.`polymer`=";}
+    <?php
+    $conn = OpenCon();
+    $tables = array();
+    $attributes = array();
+    $result = mysqli_query($conn, "show tables");
+    while ($table = mysqli_fetch_array($result)) {
+        if (empty($_GET[$table[0]])) {
+        } else {
+            array_push($tables, $table[0]);
+            array_push($attributes, $_GET[$table[0] . "2"]);
+        }
     }
-    else{if($j == count($tables)-1){ $joinner = $joinner."`".$tables[$j]."`";
-        $onlinker = $onlinker."`".$tables[$j]."`.`polymer`";
-        $from = $from.$joinner."ON".$onlinker;}
-        
-        else{ $joinner = $joinner."`".$tables[$j]."`";
-        $onlinker = $onlinker."`".$tables[$j]."`.`polymer`";
-        $from = $from.$joinner."ON".$onlinker;
-        
-        $joinner = "JOIN";
-        $onlinker = "`".$tables[$j]."`.`polymer`=";}
-       
 
+    //Joins tables
+    $j = 0;
+    $onlinker = "";
+    $joinner = "";
+    $from = "";
+    while ($j < count($tables)) {
+        if ($j == 0) {
+            if (count($tables) == 1) {
+                $from = "`" . $tables[$j] . "`";
+            } else {
+                $joinner = $joinner . "`" . $tables[$j] . "` JOIN";
+                $onlinker = $onlinker . "`" . $tables[$j] . "`.`polymer`=";
+            }
+        } else {
+            if ($j == count($tables) - 1) {
+                $joinner = $joinner . "`" . $tables[$j] . "`";
+                $onlinker = $onlinker . "`" . $tables[$j] . "`.`polymer`";
+                $from = $from . $joinner . "ON" . $onlinker;
+            } else {
+                $joinner = $joinner . "`" . $tables[$j] . "`";
+                $onlinker = $onlinker . "`" . $tables[$j] . "`.`polymer`";
+                $from = $from . $joinner . "ON" . $onlinker;
+
+                $joinner = "JOIN";
+                $onlinker = "`" . $tables[$j] . "`.`polymer`=";
+            }
+        }
+        $j++;
     }
-$j++;}
 
-//Where 
+    //Where 
 
-$enterval=array();
-$where = "";
-foreach($tables as $t){
-    array_push($enterval,$_GET[$t]);
-}
-
-for($x=0; $x<count($tables); $x++){
-    if($x == count($tables)-1){
-        $where= $where."`".$attributes[$x]."`=".$enterval[$x];
+    $enterval = array();
+    $where = "";
+    foreach ($tables as $t) {
+        array_push($enterval, $_GET[$t]);
     }
-    else{$where= $where."`".$attributes[$x]."`=".$enterval[$x]." AND ";}
-}
 
-//Query
-$sql = "SELECT `$tables[0]`.`polymer` FROM $from WHERE $where;";
-$result2 = mysqli_query($conn, $sql);
+    for ($x = 0; $x < count($tables); $x++) {
+        if ($x == count($tables) - 1) {
+            $where = $where . "`" . $attributes[$x] . "`=" . $enterval[$x];
+        } else {
+            $where = $where . "`" . $attributes[$x] . "`=" . $enterval[$x] . " AND ";
+        }
+    }
 
-//Get data and display on web page
-if (mysqli_num_rows($result2) > 0) {
-    
-echo "<p name='explain'>Polymers based on parameters entered:</p><br>";
-echo "<ol>";
-while($row = mysqli_fetch_assoc($result2)){ 
-echo "<li>$row[polymer]</li>";} 
-echo "</ol>";}
-else{echo "<p name='explain'>No matching polymers found.</p>";}
+    //Query
+    $sql = "SELECT `$tables[0]`.`polymer` FROM $from WHERE $where;";
+    $result2 = mysqli_query($conn, $sql);
 
-//If theres no options, individual prameter searches 
-/*$x=0;
+    //Get data and display on web page
+    if (mysqli_num_rows($result2) > 0) {
+
+        echo "<p name='explain'>Polymers based on parameters entered:</p><br>";
+        echo "<ol>";
+        while ($row = mysqli_fetch_assoc($result2)) {
+            echo "<li>$row[polymer]</li>";
+        }
+        echo "</ol>";
+    } else {
+        echo "<p name='explain'>No matching polymers found.</p>";
+    }
+
+    //If theres no options, individual prameter searches 
+    /*$x=0;
 foreach($tables as $t){
     $sql = "SELECT `polymer` FROM $t WHERE $attributes[$x] = $_GET[$t];";
     $result2 = mysqli_query($conn, $sql);
@@ -117,11 +127,12 @@ foreach($tables as $t){
     $x++;
 }*/
 
-?>
+    ?>
 
 
 
 </body>
+
 </html>
 
 
@@ -131,4 +142,5 @@ foreach($tables as $t){
 
 
 </body>
+
 </html>
