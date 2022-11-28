@@ -121,6 +121,8 @@ foreach($tables as $t){
 
 
 
+</body>
+</html>
 
 
 
