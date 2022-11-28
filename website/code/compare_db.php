@@ -1,16 +1,16 @@
 <?php
 
-// assumed url params: 
-// localhost/compare.php?polymer1=somepolymer&polymer2=somepolymer&tables[]=sometable&tables[]=sometable...
 /*
+assumed url params: 
+localhost/compare.php?polymer1=somepolymer&polymer2=somepolymer&tables[]=sometable&tables[]=sometable...
+
 OG query
     SELECT *
     FROM (SELECT * FROM `heat` WHERE Polymer='poly(acrylonitrile)' OR Polymer='poly(butadiene-co-acrylonitrile)') as t1, 
     (SELECT * FROM `impact` i WHERE Polymer='poly(acrylonitrile)' OR Polymer='poly(butadiene-co-acrylonitrile)') as t2
     WHERE t1.Polymer = t2.Polymer;
-*/
 
-/* the best query
+the best query
 
 SELECT * 
 FROM 
