@@ -13,6 +13,10 @@
 [id='polymer names'], [id='refractive index'], #rheological, #shear, [id='solubility parameters solvents'],
 [id='solvents and non solvents'], #tensile, #thermal{display: none;}
 */
+[id = 'chemical resistance'],[id='glass transition'], 
+[id='melting points'], 
+[id='polymer names'], [id='refractive index'],[id='solubility parameters solvents'],
+[id='solvents and non solvents']{display: none;}
 body{text-align: justify;}
 </style>
 </head>
@@ -86,7 +90,7 @@ $conn = OpenCon();
 $result = mysqli_query($conn, "show tables");
 $table = mysqli_fetch_array($result);
 while($table = mysqli_fetch_array($result)){
-    /*echo "<div id='$table[0]'>";*/
+    echo "<div id='$table[0]'>";
     echo "<label id='$table[0]'>$table[0]</label>";
     echo "<input id='$table[0]' name='$table[0]'>";
   echo "<select id='$table[0]' name='$table[0]2'>";
@@ -110,61 +114,6 @@ CloseCon($conn)
 </form>
 </div>
 
-<script>
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "block";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-  document.getElementById("electrical1").addEventListener("click", myfunction);
-  function myfunction() { document.getElementById('compression').style.display = "inline";
-    document.getElementsById('dropdowns').style.display = "inline"
-  }
-
-</script>
 
 </body>
 </html>
