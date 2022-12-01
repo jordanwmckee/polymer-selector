@@ -61,22 +61,6 @@ validateDatabase();
                         </select>
                     </div>
                 </div>
-                <div id="search">
-                    <?php 
-                    if (checkForTable()) {    
-                        echo
-                            '<button type="button" id="search-dropdown" class="collapsible">Search by Name</button>
-                            <div class="content">
-                                <div class="search-container">
-                                    <form action="">
-                                        <input type="text" placeholder="Polymer.." name="search">
-                                        <button type="button"><i class="fa fa-search"></i></button>
-                                    </form>
-                                </div>
-                            </div>';
-                    }
-                    ?>
-                </div>
                 <div id="column-filter">
                     <!-- fill in values here dynamically based on selection from table select -->
                     <?php
