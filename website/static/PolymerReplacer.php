@@ -9,21 +9,7 @@
 
 <body>
     <!-- header section -->
-    <div id="header">
-        <div class="title">
-            <h1>Polymer Selector</h1>
-            <!-- <img src="../assets/atom.svg" style="width: 20px; height: 20px"/> -->
-        </div>
-        <div class="nav-list">
-            <ul>
-                <li><a href="index.php" data-after="Home">Home</a></li>
-                <li><a href="SearchPolyPar.php" data-after="Search">Search</a></li>
-                <li><a href="compare.php" data-after="Compare">Compare</a></li>
-                <li><a href="SearchPolyReplace.php" data-after="Home">Replacer</a></li>
-                <li><a href="javascript:openDropdown('update-content')" data-after="Update">Update</a></li>
-            </ul>
-        </div>
-    </div>
+    <?php include '../assets/header.html'; ?>
     <!-- end header section -->
 
      <!-- page title sectino -->
